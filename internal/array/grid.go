@@ -8,16 +8,20 @@ func ShiftGrid(grid [][]int, k int) [][]int {
 
 	n := len(grid)
 	m := len(grid[0])
-	temp := grid[n-1][m-1]
+	total := n * m
+	k = k % total
 
 	rGrid := make([][]int, n)
 	for i := 0; i < n; i++ {
 		rGrid[i] = make([]int, m)
+	}
+
+	for i := 0; i < n; i++ {
 		for j := 0; j < m; j++ {
-			rGrid[i][j] = temp
-			temp = grid[i][j]
+			pos := (k + i * m + j) % total
+			rGrid[pos / m][pos % m] = grid[i][j]
 		}
 	}
 
-	return ShiftGrid(rGrid, k-1)
+	return rGrid
 }
