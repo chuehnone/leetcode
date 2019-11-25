@@ -33,14 +33,8 @@ func ShiftGrid(grid [][]int, k int) [][]int {
 func MinTimeToVisitAllPoints(points [][]int) int {
 	d := 0
 	num := len(points)
-	if num == 0 {
-		return d
-	}
-
-	previous := points[0]
 	for i := 1; i < num; i++ {
-		d += math.MaxInt(math.AbsInt(points[i][0] - previous[0]), math.AbsInt(points[i][1] - previous[1]))
-		previous = points[i]
+		d += math.MaxInt(math.AbsInt(points[i][0]-points[i-1][0]), math.AbsInt(points[i][1]-points[i-1][1]))
 	}
 
 	return d
