@@ -14,3 +14,8 @@ func TestShiftGrid(t *testing.T) {
 func TestMinTimeToVisitAllPoints(t *testing.T) {
 	assert.Equal(t, 7, MinTimeToVisitAllPoints([][]int{{1, 1}, {3, 4}, {-1, 0}}), "MinTimeToVisitAllPoints is incorrect.")
 }
+
+func TestOddCells(t *testing.T) {
+	assert.Equal(t, 6, OddCells(2, 3, [][]int{{0, 1}, {1, 1}}), "OddCells is incorrect.")
+	assert.Equal(t, 0, OddCells(2, 2, [][]int{{1, 1}, {0, 0}}), "OddCells is incorrect.")
+}

@@ -39,3 +39,34 @@ func MinTimeToVisitAllPoints(points [][]int) int {
 
 	return d
 }
+
+func OddCells(n int, m int, indices [][]int) int {
+	arr := make([][]int, n)
+	for i := 0; i < n; i++ {
+		arr[i] = make([]int, m)
+		for j := 0; j < m; j++ {
+			arr[i][j] = 0
+		}
+	}
+
+	for _, point := range indices {
+		for i := 0; i < m; i++ {
+			arr[point[0]][i]++
+		}
+
+		for i := 0; i < n; i++ {
+			arr[i][point[1]]++
+		}
+	}
+
+	cnt := 0
+	for i := 0; i < n; i++ {
+		for j := 0; j < m; j++ {
+			if arr[i][j]%2 == 1 {
+				cnt++
+			}
+		}
+	}
+
+	return cnt
+}
