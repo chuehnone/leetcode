@@ -61,31 +61,14 @@ func OddCells(n int, m int, indices [][]int) int {
 }
 
 func CheckStraightLine(coordinates [][]int) bool {
-	diffX := coordinates[1][0] - coordinates[0][0]
-	diffY := coordinates[1][1] - coordinates[0][1]
-	rate := 0.0
-	if diffX != 0 && diffY != 0 {
-		rate = float64(diffX) / float64(diffY)
-	}
+	dX := coordinates[1][0] - coordinates[0][0]
+	dY := coordinates[1][1] - coordinates[0][1]
 	num := len(coordinates)
 
 	for i := 2; i < num; i++ {
-		tDiffX := coordinates[i][0] - coordinates[i-1][0]
-		tDiffY := coordinates[i][1] - coordinates[i-1][1]
-		if diffX == 0 {
-			if tDiffX != 0 {
-				return false
-			}
-			continue
-		}
-		if diffY == 0 {
-			if tDiffY != 0 {
-				return false
-			}
-			continue
-		}
-
-		if rate != float64(tDiffX)/float64(tDiffY) {
+		tX := coordinates[i][0] - coordinates[0][0]
+		tY := coordinates[i][1] - coordinates[0][1]
+		if dX * tY != tX * dY {
 			return false
 		}
 	}
