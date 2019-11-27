@@ -19,3 +19,10 @@ func TestOddCells(t *testing.T) {
 	assert.Equal(t, 6, OddCells(2, 3, [][]int{{0, 1}, {1, 1}}), "OddCells is incorrect.")
 	assert.Equal(t, 0, OddCells(2, 2, [][]int{{1, 1}, {0, 0}}), "OddCells is incorrect.")
 }
+
+func TestCheckStraightLine(t *testing.T) {
+	assert.Equal(t, true, CheckStraightLine([][]int{{1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 6}, {6, 7}}), "CheckStraightLine is incorrect.")
+	assert.Equal(t, false, CheckStraightLine([][]int{{1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 6}, {7, 7}}), "CheckStraightLine is incorrect.")
+	assert.Equal(t, true, CheckStraightLine([][]int{{-3, -2}, {-1, -2}, {2, -2}, {-2, -2}, {0, -2}}), "CheckStraightLine is incorrect.")
+	assert.Equal(t, true, CheckStraightLine([][]int{{-2, 12}, {2, -8}, {6, -28}, {-10, 52}, {-7, 37}, {4, -18}, {7, -33}, {1, -3}, {-1, 7}, {8, -38}}), "CheckStraightLine is incorrect.")
+}
