@@ -1,4 +1,4 @@
-package array
+package larray
 
 import (
 	"leetcode/internal/math"
