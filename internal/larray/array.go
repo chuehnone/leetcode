@@ -68,10 +68,25 @@ func CheckStraightLine(coordinates [][]int) bool {
 	for i := 2; i < num; i++ {
 		tX := coordinates[i][0] - coordinates[0][0]
 		tY := coordinates[i][1] - coordinates[0][1]
-		if dX * tY != tX * dY {
+		if dX*tY != tX*dY {
 			return false
 		}
 	}
 
 	return true
+}
+
+func MinCostToMoveChips(chips []int) int {
+	even := 0
+	odd := 0
+
+	for _, v := range chips {
+		if v&1 == 1 {
+			odd++
+		} else {
+			even++
+		}
+	}
+
+	return math.MinInt(even, odd)
 }

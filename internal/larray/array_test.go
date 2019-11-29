@@ -26,3 +26,8 @@ func TestCheckStraightLine(t *testing.T) {
 	assert.Equal(t, true, CheckStraightLine([][]int{{-3, -2}, {-1, -2}, {2, -2}, {-2, -2}, {0, -2}}), "CheckStraightLine is incorrect.")
 	assert.Equal(t, true, CheckStraightLine([][]int{{-2, 12}, {2, -8}, {6, -28}, {-10, 52}, {-7, 37}, {4, -18}, {7, -33}, {1, -3}, {-1, 7}, {8, -38}}), "CheckStraightLine is incorrect.")
 }
+
+func TestMinCostToMoveChips(t *testing.T) {
+	assert.Equal(t, 1, MinCostToMoveChips([]int{1, 2, 3}), "MinCostToMoveChips is incorrect.")
+	assert.Equal(t, 2, MinCostToMoveChips([]int{2, 2, 2, 3, 3}), "MinCostToMoveChips is incorrect.")
+}
