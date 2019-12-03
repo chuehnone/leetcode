@@ -31,3 +31,9 @@ func TestMinCostToMoveChips(t *testing.T) {
 	assert.Equal(t, 1, MinCostToMoveChips([]int{1, 2, 3}), "MinCostToMoveChips is incorrect.")
 	assert.Equal(t, 2, MinCostToMoveChips([]int{2, 2, 2, 3, 3}), "MinCostToMoveChips is incorrect.")
 }
+
+func TestUniqueOccurrences(t *testing.T) {
+	assert.Equal(t, true, UniqueOccurrences([]int{1, 2, 2, 1, 1, 3}))
+	assert.Equal(t, false, UniqueOccurrences([]int{1, 2}))
+	assert.Equal(t, true, UniqueOccurrences([]int{-3, 0, 1, -3, 1, 1, 1, -3, 10, 0}))
+}

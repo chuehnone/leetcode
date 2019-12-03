@@ -90,3 +90,21 @@ func MinCostToMoveChips(chips []int) int {
 
 	return math.MinInt(even, odd)
 }
+
+func UniqueOccurrences(arr []int) bool {
+	countMap := make(map[int]int)
+
+	for _, v := range arr {
+		countMap[v]++
+	}
+
+	uniqueMap := make(map[int]bool)
+	for _, count := range countMap {
+		if _, exist := uniqueMap[count]; exist {
+			return false
+		}
+		uniqueMap[count] = true
+	}
+
+	return true
+}
