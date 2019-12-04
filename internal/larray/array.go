@@ -2,6 +2,7 @@ package larray
 
 import (
 	"leetcode/internal/math"
+	"sort"
 )
 
 // Given a 2D grid of size n * m and an integer k. You need to shift the grid k times.
@@ -107,4 +108,24 @@ func UniqueOccurrences(arr []int) bool {
 	}
 
 	return true
+}
+
+func MinimumAbsDifference(arr []int) [][]int {
+	arrLen := len(arr)
+
+	sort.Ints(arr)
+
+	min := arr[1] - arr[0]
+	ans := [][]int{{arr[0], arr[1]}}
+	for i := 2; i < arrLen; i++ {
+		dis := arr[i] - arr[i-1]
+		if min > dis {
+			min = dis
+			ans = [][]int{{arr[i-1], arr[i]}}
+		} else if min == dis {
+			ans = append(ans, []int{arr[i-1], arr[i]})
+		}
+	}
+
+	return ans
 }

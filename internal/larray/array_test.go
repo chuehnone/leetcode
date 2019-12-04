@@ -37,3 +37,7 @@ func TestUniqueOccurrences(t *testing.T) {
 	assert.Equal(t, false, UniqueOccurrences([]int{1, 2}))
 	assert.Equal(t, true, UniqueOccurrences([]int{-3, 0, 1, -3, 1, 1, 1, -3, 10, 0}))
 }
+
+func TestMinimumAbsDifference(t *testing.T) {
+	assert.Equal(t, [][]int{{1, 2}, {2, 3}, {3, 4}}, MinimumAbsDifference([]int{4, 2, 1, 3}))
+}
