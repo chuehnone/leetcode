@@ -55,7 +55,7 @@ func ToHexspeak(num string) string {
 }
 
 func MaxNumberOfBalloons(text string) int {
-	balloonTable := map[byte]int{
+	balloonTable := map[rune]int{
 		'b': 0,
 		'a': 0,
 		'l': 0,
@@ -63,9 +63,7 @@ func MaxNumberOfBalloons(text string) int {
 		'n': 0,
 	}
 
-	textLen := len(text)
-	for i := 0 ; i < textLen ; i++ {
-		c := text[i]
+	for _, c := range text{
 		if _, exist := balloonTable[c]; exist {
 			balloonTable[c]++
 		}
