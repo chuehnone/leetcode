@@ -16,3 +16,9 @@ func TestToHexspeak(t *testing.T) {
 	assert.Equal(t, "IOI", ToHexspeak("257"))
 	assert.Equal(t, "ERROR", ToHexspeak("3"))
 }
+
+func TestMaxNumberOfBalloons(t *testing.T) {
+	assert.Equal(t, 1, MaxNumberOfBalloons("nlaebolko"))
+	assert.Equal(t, 2, MaxNumberOfBalloons("loonbalxballpoon"))
+	assert.Equal(t, 0, MaxNumberOfBalloons("leetcode"))
+}

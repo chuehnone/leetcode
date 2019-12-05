@@ -11,7 +11,7 @@ func BalancedStringSplit(s string) int {
 	sLen := len(s)
 	var last string
 	push := 0
-	for i := 0 ; i < sLen ; i++ {
+	for i := 0; i < sLen; i++ {
 		ch := string(s[i])
 		if push == 0 {
 			last = ch
@@ -39,7 +39,7 @@ func ToHexspeak(num string) string {
 
 	sLen := len(hex)
 	ans := ""
-	for i := 0 ; i < sLen ; i++ {
+	for i := 0; i < sLen; i++ {
 		if hex[i] == '0' {
 			ans += "O"
 		} else if hex[i] == '1' {
@@ -52,4 +52,34 @@ func ToHexspeak(num string) string {
 	}
 
 	return ans
+}
+
+func MaxNumberOfBalloons(text string) int {
+	balloonTable := map[byte]int{
+		'b': 0,
+		'a': 0,
+		'l': 0,
+		'o': 0,
+		'n': 0,
+	}
+
+	textLen := len(text)
+	for i := 0 ; i < textLen ; i++ {
+		c := text[i]
+		if _, exist := balloonTable[c]; exist {
+			balloonTable[c]++
+		}
+	}
+
+	min := balloonTable['b']
+	for key, value := range balloonTable {
+		if key == 'l' || key == 'o' {
+			value = value / 2
+		}
+		if min > value {
+			min = value
+		}
+	}
+
+	return min
 }
