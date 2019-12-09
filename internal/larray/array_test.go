@@ -41,3 +41,7 @@ func TestUniqueOccurrences(t *testing.T) {
 func TestMinimumAbsDifference(t *testing.T) {
 	assert.Equal(t, [][]int{{1, 2}, {2, 3}, {3, 4}}, MinimumAbsDifference([]int{4, 2, 1, 3}))
 }
+
+func TestDayOfTheWeek(t *testing.T) {
+	assert.Equal(t, "Saturday", DayOfTheWeek(31, 8, 2019))
+}

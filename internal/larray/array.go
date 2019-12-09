@@ -129,3 +129,18 @@ func MinimumAbsDifference(arr []int) [][]int {
 
 	return ans
 }
+
+// https://www.wikiwand.com/en/Determination_of_the_day_of_the_week#/Implementation-dependent_methods
+func DayOfTheWeek(day int, month int, year int) string {
+	if month < 3 {
+		day = day + year
+		year--
+	} else {
+		day += year - 2
+	}
+
+	dayOfWeek := (23*month/9 + day + 4 + year/4 - year/100 + year/400) % 7
+	weekTable := []string{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
+
+	return weekTable[dayOfWeek]
+}
