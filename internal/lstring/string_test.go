@@ -22,3 +22,8 @@ func TestMaxNumberOfBalloons(t *testing.T) {
 	assert.Equal(t, 2, MaxNumberOfBalloons("loonbalxballpoon"))
 	assert.Equal(t, 0, MaxNumberOfBalloons("leetcode"))
 }
+
+func TestSubtractProductAndSum(t *testing.T) {
+	assert.Equal(t, 15, SubtractProductAndSum(234))
+	assert.Equal(t, 21, SubtractProductAndSum(4421))
+}

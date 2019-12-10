@@ -81,3 +81,18 @@ func MaxNumberOfBalloons(text string) int {
 
 	return min
 }
+
+func SubtractProductAndSum(n int) int {
+	s := strconv.Itoa(n)
+
+	product := 1
+	sum := 0
+
+	for _, c := range s {
+		num := int(c - '0')
+		product *= num
+		sum += num
+	}
+
+	return product - sum
+}
