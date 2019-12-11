@@ -144,3 +144,32 @@ func DayOfTheWeek(day int, month int, year int) string {
 
 	return weekTable[dayOfWeek]
 }
+
+func DistanceBetweenBusStops(distance []int, start int, destination int) int {
+	r := 0
+	l := 0
+
+	s := start
+	d := destination
+	if s > d {
+		s = destination
+		d = start
+	}
+
+	for i := s ; i < d ; i++ {
+		r += distance[i]
+	}
+
+	for i := 0 ; i < s ; i++ {
+		l += distance[i]
+	}
+	max := len(distance)
+	for i := d ; i < max ; i++ {
+		l += distance[i]
+	}
+
+	if r > l {
+		return l
+	}
+	return r
+}

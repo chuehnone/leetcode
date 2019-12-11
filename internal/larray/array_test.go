@@ -45,3 +45,7 @@ func TestMinimumAbsDifference(t *testing.T) {
 func TestDayOfTheWeek(t *testing.T) {
 	assert.Equal(t, "Saturday", DayOfTheWeek(31, 8, 2019))
 }
+
+func TestDistanceBetweenBusStops(t *testing.T) {
+	assert.Equal(t, 4, DistanceBetweenBusStops([]int{1, 2, 3, 4}, 3, 4))
+}
