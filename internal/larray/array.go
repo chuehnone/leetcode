@@ -173,3 +173,30 @@ func DistanceBetweenBusStops(distance []int, start int, destination int) int {
 	}
 	return r
 }
+
+func FindSpecialInteger(arr []int) int {
+	cnt := 1
+	currentInt := arr[0]
+	tempCnt := 0
+	tempInt := 0
+	for i, v := range arr {
+		if i == 0 {
+			tempCnt = 1
+			tempInt = 1
+			continue
+		}
+		if v == tempInt {
+			tempCnt++
+		} else {
+			tempInt = v
+			tempCnt = 1
+		}
+
+		if tempCnt > cnt {
+			cnt = tempCnt
+			currentInt = tempInt
+		}
+	}
+
+	return currentInt
+}
