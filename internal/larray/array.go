@@ -202,17 +202,23 @@ func FindSpecialInteger(arr []int) int {
 }
 
 func FindNumbers(nums []int) int {
-	ans := 0
+	count := 0
 	for _, num := range nums {
-		cnt := 1
-		for num > 9 {
-			num /= 10
-			cnt++
+		match := false
+		for {
+			if num < 10 {
+				break
+			}
+			if num < 100 {
+				match = true
+				break
+			}
+			num /= 100
 		}
 
-		if cnt&1 == 0 {
-			ans++
+		if match {
+			count++
 		}
 	}
-	return ans
+	return count
 }
