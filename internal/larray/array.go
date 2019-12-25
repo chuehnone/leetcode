@@ -156,15 +156,15 @@ func DistanceBetweenBusStops(distance []int, start int, destination int) int {
 		d = start
 	}
 
-	for i := s ; i < d ; i++ {
+	for i := s; i < d; i++ {
 		r += distance[i]
 	}
 
-	for i := 0 ; i < s ; i++ {
+	for i := 0; i < s; i++ {
 		l += distance[i]
 	}
 	max := len(distance)
-	for i := d ; i < max ; i++ {
+	for i := d; i < max; i++ {
 		l += distance[i]
 	}
 
@@ -199,4 +199,20 @@ func FindSpecialInteger(arr []int) int {
 	}
 
 	return currentInt
+}
+
+func FindNumbers(nums []int) int {
+	ans := 0
+	for _, num := range nums {
+		cnt := 1
+		for num > 9 {
+			num /= 10
+			cnt++
+		}
+
+		if cnt&1 == 0 {
+			ans++
+		}
+	}
+	return ans
 }
