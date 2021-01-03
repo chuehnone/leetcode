@@ -1,8 +1,9 @@
 package larray
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestShiftGrid(t *testing.T) {
@@ -58,4 +59,10 @@ func TestFindSpecialInteger(t *testing.T) {
 func TestFindNumbers(t *testing.T) {
 	assert.Equal(t, 2, FindNumbers([]int{12, 345, 2, 6, 7896}))
 	assert.Equal(t, 1, FindNumbers([]int{123, 345, 2, 6, 7896}))
+}
+
+func TestMinOperations(t *testing.T) {
+	assert.Equal(t, 2, MinOperations([]int{5, 1, 3}, []int{9, 4, 2, 3, 4}))
+	assert.Equal(t, 3, MinOperations([]int{6, 4, 8, 1, 3, 2}, []int{4, 7, 6, 2, 3, 8, 6, 1}))
+	assert.Equal(t, 0, MinOperations([]int{1, 2, 3}, []int{3, 1, 2, 3}))
 }

@@ -1,8 +1,9 @@
 package larray
 
 import (
-	"leetcode/internal/math"
 	"sort"
+
+	"leetcode/internal/math"
 )
 
 // Given a 2D grid of size n * m and an integer k. You need to shift the grid k times.
@@ -221,4 +222,45 @@ func FindNumbers(nums []int) int {
 		}
 	}
 	return count
+}
+
+func MinOperations(target []int, arr []int) int {
+	targetMap := make(map[int]int)
+	for i, v := range target {
+		targetMap[v] = i
+	}
+
+	temp := []int{}
+	for _, value := range arr {
+		sequence, exist := targetMap[value]
+		if !exist {
+			continue
+		}
+		if length := len(temp); length == 0 || sequence > temp[length-1] {
+			temp = append(temp, sequence)
+			continue
+		}
+
+		temp[lowerBound(temp, sequence)] = sequence
+	}
+
+	return len(target) - len(temp)
+}
+
+func lowerBound(arr []int, find int) int {
+	first := 0
+	length := len(arr)
+
+	for length > 0 {
+		half := length >> 1
+		middle := first + half
+		if arr[middle] < find {
+			first = middle + 1
+			length = length - half - 1
+		} else {
+			length = half
+		}
+	}
+
+	return first
 }
